@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Special</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> <!-- Fancy Font -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div id="accessCodeSection">
+        <h1>Welcome to the Valentine's Day Special!</h1>
+        <label for="accessCode">Enter Access Code: </label>
+        <input type="text" id="accessCode" placeholder="Enter your code">
+        <button onclick="checkAccessCode()">Submit</button>
+        <p id="errorMessage" style="color:red;"></p>
+    </div>
+
+    <div id="questionSection" style="display: none;">
+        <h2>Q&A Time!</h2>
+        <form id="quizForm">
+            <p>1. What does Samantha like?</p>
+            <input type="text" id="q1" required>
+            <p>2. What does this beautiful specimen struggle with?</p>
+            <input type="text" id="q2" required>
+            <p>3. Which food does Samantha hate and will never eat?</p>
+            <input type="text" id="q3" required>
+            <p>4. What is Samantha's favorite food?</p>
+            <input type="text" id="q4" required>
+            <button type="button" onclick="checkAnswers()">Submit Answers</button>
+        </form>
+    </div>
+
+    <div id="letterSection" style="display: none;">
+        <div class="heart" id="heart" onclick="openHeart()">
+            <!-- The heart will be clickable to reveal the letter -->
+        </div>
+            <div id="letterContent" class="letter-content">
+
+                <p>Dear Valentine,</p>
+                <p>I can’t believe it’s only been a few months since we started this amazing journey together! Every day with you feels so special, and I’m so thankful for you being there for me, especially when I had my little breakdowns. Your patience and love make everything feel so much easier, and I feel so lucky to have you by my side. I’m excited to see what this year brings for us. With all my love and the biggest hugs,</p>
+                <p>Love,Sammie💖</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
