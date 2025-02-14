@@ -1,0 +1,218 @@
+/*style.css*/
+/* Global styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fef2f7; /* Soft pastel pink background */
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/soft-light.png'); /* Subtle texture for background */
+    overflow: hidden; /* Prevent scrollbars due to floating hearts */
+    position: relative; /* To position the background heart */
+}
+
+/* Add a big red heart in the background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 10%;  /* Adjust this value to move the heart up or down */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 0% 35%, 0% 70%, 50% 100%, 100% 70%, 100% 35%);
+    opacity: 0.3;  /* Make the heart a little transparent */
+    z-index: -1;  /* Ensure the heart is behind the content */
+}
+
+/* Container to center the content */
+.container {
+    margin-top: 50px;
+}
+
+/* Styling the main title */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #ff4081; /* Bright pink color */
+    margin-bottom: 30px;
+}
+
+/* Style for access code section */
+#accessCodeSection {
+    font-size: 1.2rem;
+    color: #ff4081;
+}
+
+input[type="text"] {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 2px solid #ff4081; /* Valentine pink border */
+    font-size: 1.1rem;
+    width: 250px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #f50057;
+    box-shadow: 0 0 10px rgba(255, 0, 87, 0.6);
+}
+
+/* Submit button */
+button {
+    padding: 14px 28px;
+    background-color: #ff4081;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #f50057;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Styling the question section */
+#questionSection {
+    display: none;
+    margin-top: 30px;
+}
+
+/* Heart styling */
+.heart {
+    width: 300px;  /* Size of the giant heart */
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+    background-color: red;
+    clip-path: polygon(50% 0%, 0% 35%, 0% 70%, 50% 100%, 100% 70%, 100% 35%);
+    cursor: pointer; /* Makes the heart clickable */
+    transition: transform 0.3s ease; /* For subtle scale effect */
+}
+
+.heart:hover {
+    transform: scale(1.05); /* Slightly enlarge the heart when hovered */
+}
+
+/* Letter pop-up section */
+#letterSection {
+    display: none;
+    margin-top: 40px;
+}
+
+/* Letter pop-up section */
+#letterSection {
+    display: none;
+    margin-top: 40px;
+}
+
+.letter-content {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem; /* Reduced font size */
+    color: #333;
+    background-color: #fff;
+    padding: 15px; /* Reduced padding */
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    position: relative;
+    width: 70%;  /* Reduced width to make it more compact */
+    margin: 0 auto;
+    border: 2px solid #ff4081;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0); /* Gradient effect for the letter */
+    opacity: 0;
+}
+
+/* Slide-in animation for letter */
+@keyframes slideOut {
+    0% {
+        transform: translateY(250px); /* Letter starts below the heart */
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-20px); /* Slide towards the middle */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0); /* Final position in view */
+        opacity: 1;
+    }
+}
+
+#letterContent {
+    display: block;
+    position: absolute;
+    top: 70px;  /* Adjusted top value for better positioning */
+    width: 100%;
+    animation: slideOut 1s ease-out forwards; /* Change duration to 1s */
+}
+
+
+/* Floating Hearts Animation */
+@keyframes heartAnimation {
+    0% { transform: scale(0.8); opacity: 0.7; }
+    50% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.7; }
+}
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ff4081;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: heartAnimation 3s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+.heart:nth-child(1) { left: 5%; top: 5%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 20%; top: 30%; animation-delay: 1s; }
+.heart:nth-child(3) { left: 45%; top: 15%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 70%; top: 50%; animation-delay: 3s; }
+.heart:nth-child(5) { left: 90%; top: 70%; animation-delay: 4s; }
+
+#heartContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Styling for small hearts floating around */
+@keyframes smallHeartAnimation {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(45deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.small-heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #ff4081;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: smallHeartAnimation 2s infinite ease-in-out;
+}
+
+.small-heart:nth-child(1) { left: 20%; top: 20%; animation-delay: 0s; }
+.small-heart:nth-child(2) { left: 40%; top: 30%; animation-delay: 1s; }
+.small-heart:nth-child(3) { left: 60%; top: 50%; animation-delay: 2s; }
+.small-heart:nth-child(4) { left: 80%; top: 70%; animation-delay: 3s; }
+.small-heart:nth-child(5) { left: 50%; top: 80%; animation-delay: 4s; }
